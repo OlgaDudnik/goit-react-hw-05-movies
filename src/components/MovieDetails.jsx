@@ -3,6 +3,7 @@ import { useLocation, useParams, Link, Outlet } from 'react-router-dom';
 import { ApiDetails } from 'services/Api';
 import styles from '../styles/styles.module.css';
 import { ImArrowLeft } from 'react-icons/im';
+import defaultImg from '../images/avatar.png';
 
 const MovieDetails = () => {
   const { movieId } = useParams();
@@ -29,7 +30,11 @@ const MovieDetails = () => {
             Go back
           </Link>
           <div className={styles.Location}>
-            <img src={poster} alt="" width={300} />
+            <img
+              src={film.poster_path ? poster : defaultImg}
+              alt=""
+              width={300}
+            />
             <div>
               <h2>{film.title}</h2>
               <h3>Overview</h3>
